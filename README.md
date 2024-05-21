@@ -1,4 +1,4 @@
-# Steps to render FlameGraph svg file from explain output
+## Steps to render FlameGraph svg file from explain output
 
 ### Clone the FlameGraph repo and the rithue/skunkworks-collapse-json repo
 ```
