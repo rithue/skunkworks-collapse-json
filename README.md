@@ -1,22 +1,24 @@
-# jsonToCollapsed
-Convert any json file to collapsed format used for flame graph.
+# Steps to render FlameGraph svg file from explain output
 
-Usage:
-## Download flame graph git repo first to your local directory, say, /home/username/work
-    git clone https://github.com/brendangregg/FlameGraph.git
+## Clone the FlameGraph repo and the rithue/skunkworks-collapse-json repo
 
-## Convert any.json to any.json.txt file
-    python convertJsonToCollapsed.py any.json
+git clone https://github.com/brendangregg/FlameGraph.git
 
-## Create flame graph
-    cat any.json.txt |perl /home/usename/work/FlameGraph/flamegraph.pl --title "Tree Graph" > any.json.svg
+git clone https://github.com/rithue/skunkworks-collapse-json.git
 
-To change the titile of graph, simple replace "Tree Graph" with "any title"
+## Run the following commands to get the collapsed output text file under the file name “explain.json.txt”
 
-## Open any.json.svg in Chrome Browser
+cd skunkworks-collapse-json
 
-## Combine multiple SVG files into a single html report using combineSVG.py
+python3 convertJsonToCollapsed.py explain.json
 
-    python combineSVG.py first.svg second.svg third.svg
+## Run the following commands to get the svg file under the name kernel.svg
 
-## Open the resulting index.html in a web browser
+cd ..
+
+cd FlameGraph
+
+./flamegraph.pl /Users/rithu.eswaramoorthy/jsonToCollapsed/explain.json.txt > kernel.svg
+
+## Open the svg file on a web browser to display the FlameGraph
+
